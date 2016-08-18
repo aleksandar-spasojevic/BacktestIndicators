@@ -1,0 +1,13 @@
+Package: BacktestIndicators
+Type: Package
+Title: Backtest strategies built on indicators
+Version: 0.1.0
+Authors@R: person("Aleksandar", "Spasojevic", email = "aleksandar.spasojevic@outlook.com", role = c("aut", "cre"))
+Description: More about what it does (maybe more than one line)
+License: What license is it under?
+Depends:
+    xts,
+    quantmod
+LazyData: TRUE
+RoxygenNote: 5.0.1.9000
+Suggests: testthat
