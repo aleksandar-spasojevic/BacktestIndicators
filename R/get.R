@@ -19,20 +19,24 @@ get_rebalance_dates <- function() {
 
 #' @export
 get_backtest <- function() {
-  structure(list(Strategies = get_strategies(),
-                 Positions = get_positions(),
-                 Indicators = get_indicators()),
-            class = c("backtest","list"))
+  structure(
+    as.environment(
+      list(
+        Strategies = get_strategies(),
+        Positions = get_positions(),
+        Indicators = get_indicators())
+    ),
+    class = c("backtest","environment"))
 }
 
 #' @export
 `[.backtest` <- function(x, i, j,...){
-
+  
   if (!missing(i))
     x <- lapply(x, "[", i)
-
+  
   if (!missing(j))
     x <- lapply(x, lapply, "[", j = j)
-
-  structure( x, class = c("backtest","list") )
+  
+  structure( as.environment(x), class = c("backtest","environment") )
 }
