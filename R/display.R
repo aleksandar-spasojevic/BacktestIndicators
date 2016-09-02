@@ -12,14 +12,12 @@ plot.backtest <- function(x,
                  .xts_version["major"],.xts_version["minor"],.xts_version["patch"]))
 
   mapply(FUN = function(asset, value, positions,...){
-
     plot.xts(as.xts(do.call(merge.zoo,lapply(value,unname))),
              main = sprintf("%s: %s", main, asset),
              legend.loc = legend.loc, col = col, grid.ticks.lwd = grid.ticks.lwd,
              grid.col = grid.col, lwd = lwd, yaxis.left = yaxis.left,
              major.ticks = major.ticks,
              ...)
-
   }, names(x$Strategies), x$Strategies, x$Positions,
   MoreArgs = list(...))
 
@@ -38,8 +36,8 @@ xts_version <- function(){
 addPositions <- function(positions, main = "Position", col = colors, on = NA,
                          type = "p", pch = 20,
                          ylim = {
-                           .min <- min(sapply(positions[[1]],min,na.rm = TRUE))
-                           .max <- max(sapply(positions[[1]],max,na.rm = TRUE))
+                           .min <- min(sapply(positions[[1]], min, na.rm = TRUE))
+                           .max <- max(sapply(positions[[1]], max, na.rm = TRUE))
 
                            c( .min - abs(0.2*.min), .max + 0.2*.max )
                            },
