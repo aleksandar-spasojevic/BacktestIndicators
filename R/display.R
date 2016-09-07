@@ -1,7 +1,7 @@
 
 #' @export
 plot.backtest <- function(x,
-                          main = "Cumulative Performance", legend.loc = "topleft",
+                          main = "Cumulative Performance:", legend.loc = "topleft",
                           col = colors, grid.ticks.lwd = 0, grid.col = 0,
                           lwd = 1.3, yaxis.left = FALSE, major.ticks = "years",
                           .xts_version = xts_version(),
@@ -13,7 +13,7 @@ plot.backtest <- function(x,
 
   mapply(FUN = function(asset, value, positions,...){
     plot.xts(as.xts(do.call(merge.zoo,lapply(value,unname))),
-             main = sprintf("%s: %s", main, asset),
+             main = sprintf("%s %s", main, asset),
              legend.loc = legend.loc, col = col, grid.ticks.lwd = grid.ticks.lwd,
              grid.col = grid.col, lwd = lwd, yaxis.left = yaxis.left,
              major.ticks = major.ticks,
@@ -49,6 +49,3 @@ addPositions <- function(positions, main = "Position", col = colors, on = NA,
 
 #' @export
 below <- function(fun, ..., on = NA) fun(on = on, ...)
-
-#' @export
-above <- function(fun, ..., on = 1) fun(on = on, ...)

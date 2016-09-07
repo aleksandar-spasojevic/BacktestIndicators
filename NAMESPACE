@@ -3,7 +3,6 @@
 S3method("[",backtest)
 S3method(plot,backtest)
 export(RebalanceConfig)
-export(above)
 export(addPositions)
 export(add_asset)
 export(add_indicator)
